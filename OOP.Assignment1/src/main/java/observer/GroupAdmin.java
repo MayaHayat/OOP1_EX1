@@ -31,7 +31,8 @@ public class GroupAdmin implements Sender{
 
     @Override
     public void register(Member obj) {
-        subscribers.add(obj);
+        if (!subscribers.contains(obj))
+            subscribers.add(obj);
     }
 
     /**
@@ -41,8 +42,9 @@ public class GroupAdmin implements Sender{
 
     @Override
     public void unregister(Member obj) {
-        subscribers.remove(obj);
-
+        if (subscribers.contains(obj)){
+            subscribers.remove(obj);
+        }
     }
 
     /**
